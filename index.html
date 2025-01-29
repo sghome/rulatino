@@ -5,38 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RULATINO</title>
     
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
-<spline-viewer url="https://prod.spline.design/yOjeqJhGqtkJlQ0p/scene.splinecode"></spline-viewer>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
+    <spline-viewer url="https://prod.spline.design/yOjeqJhGqtkJlQ0p/scene.splinecode"></spline-viewer>
 
     <style>
-      
-        spline-viewer::part(brand) {
-    display: none !important;
-}
-
-spline-viewer::part(logo) {
-    display: none !important;
-}
-
-        
+        spline-viewer::part(brand),
+        spline-viewer::part(logo) {
+            display: none !important;
+        }
     </style>
 
     <script>
-       document.addEventListener("DOMContentLoaded", function() {
-    const observer = new MutationObserver(() => {
-        const logo = document.querySelector("spline-viewer a#logo");
-        if (logo) {
-            logo.style.display = "none";
-        }
-    });
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new MutationObserver(() => {
+                const logo = document.querySelector("spline-viewer a#logo");
+                if (logo) {
+                    logo.style.display = "none";
+                }
+            });
 
-    observer.observe(document.body, { childList: true, subtree: true });
-});
-
+            observer.observe(document.body, { childList: true, subtree: true });
+        });
     </script>
-
 </head>
 <body>
-  
 </body>
 </html>
