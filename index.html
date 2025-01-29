@@ -16,16 +16,30 @@
     </style>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const observer = new MutationObserver(() => {
-                const logo = document.querySelector("spline-viewer a#logo");
-                if (logo) {
-                    logo.style.display = "none";
-                }
-            });
+       <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var logoElement = document.getElementById("logo");
+    if (logoElement) {
+      logoElement.remove();
+    }
+  });
 
-            observer.observe(document.body, { childList: true, subtree: true });
+  // Elimina el logo antes de que se renderice
+  (function () {
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        mutation.addedNodes.forEach(function (node) {
+          if (node.id === "logo") {
+            node.remove();
+          }
         });
+      });
+    });
+
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  })();
+</script>
+
     </script>
 </head>
 <body>
